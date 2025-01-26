@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+import 'package:your_project_name/login_screen.dart'; // Replace with login screen file
+import 'package:your_project_name/register_screen.dart'; // Replace with register screen file
+
+class ChooseScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightBlueAccent,
+        title: Text('Welcome'),
+        centerTitle: true,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Image at the top
+          Image.asset(
+            'assets/doctors_nurses.png', // Path to your locally downloaded image
+            height: 200,
+            fit: BoxFit.contain,
+          ),
+          SizedBox(height: 50),
+          // Login button
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()), // Replace with Login screen
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blueAccent,
+              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            child: Text(
+              'Login',
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+          ),
+          SizedBox(height: 20),
+          // Register button
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => RegisterScreen()), // Replace with Register screen
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.greenAccent,
+              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            child: Text(
+              'Register',
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
